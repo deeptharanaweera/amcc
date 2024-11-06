@@ -66,8 +66,8 @@ export default function Home_News_And_Update() {
               </div>
               <div className="lg:h-4/5 lg:w-full w-1/2">
                 <img
-                  src={news.image}
-                  alt=""
+                 src={`data:${news.image_type};base64,${Buffer.from(news.image_data).toString("base64")}`}
+                 alt={news.image_name}
                   className="w-full h-full lg:rounded-b-xl rounded-r-xl"
                 />
               </div>

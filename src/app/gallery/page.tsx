@@ -77,11 +77,13 @@ export default function GalleryPage() {
                                 onClick={() => handleClick(image._id)}
                                 className="relative break-inside-avoid mb-8"
                             >
+                                {image.main_image && (
                                 <img
                                     className="h-auto max-w-full rounded-lg"
-                                    src={image.mainimage} // Assuming image.image contains the image URL
-                                    alt="Gallery image"
+                                    src={`data:${image.main_image.image_type};base64,${Buffer.from(image.main_image.image_data).toString("base64")}`}
+                      alt={image.main_image.image_name}
                                 />
+                                )}
                                 <div className="absolute inset-0 flex flex-col items-start justify-end text-black px-2 pb-2">
                                     <h1 className="text-2xl font-semibold bg-[#f2ff42] px-2 w-4/5">
                                         {image.header}

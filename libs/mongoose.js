@@ -12,7 +12,7 @@ const connectionToDatabase = async () =>{
 export default connectionToDatabase;
 
 // import mongoose from 'mongoose';
-
+    
 // const connectionToDatabase = async () => {
 //     if (mongoose.connections[0].readyState) {
 //         return; // Use existing connection

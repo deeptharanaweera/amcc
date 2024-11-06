@@ -43,7 +43,8 @@ export default function page({params}) {
       <div className="fixed inset-0 flex items-center justify-center w-screen">
         <div className="lg:flex items-center justify-center lg:w-6/12 w-10/12 border border-black bg-gray-100 border-opacity-50 rounded-xl shadow-xl lg:h-auto h-5/6">
         <div className="lg:w-2/5 w-full lg:h-full h-2/5  p-5">
-          <img src={applicationData.image} alt="" className="w-full h-full lg:object-cover rounded-xl"/>
+          <img src={`data:${applicationData.image_type};base64,${Buffer.from(applicationData.image_data).toString("base64")}`}
+                                            alt={applicationData.image_name} className="w-full h-full lg:object-cover rounded-xl"/>
         </div>
         <div className="flex flex-col items-center lg:h-full h-3/5 lg:w-3/5 p-5 lg:gap-5 gap-3">
           <h1 className="lg:text-3xl text-xl font-semibold text-center">{applicationData.header}</h1>

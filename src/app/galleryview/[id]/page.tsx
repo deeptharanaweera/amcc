@@ -65,6 +65,7 @@ export default function Page({ params }) {
     setIsOpen(false);
   };
 
+
   return (
     <div className="min-h-screen w-screen flex flex-col">
       <NavBar />
@@ -76,19 +77,21 @@ export default function Page({ params }) {
           <p className="lg:text-xl text-sm">{item.description}</p>
         </div>
         <div className="columns-1 md:columns-2 xl:columns-4 gap-7 lg:w-9/12 w-11/12 lg:mt-8 mt-4">
-  {item && item.otherimages && item.otherimages.map((imageSrc, index) => (
-    <div
-      key={index}
-      className="relative break-inside-avoid mb-8"
-      onClick={() => handleClick(imageSrc)}
-    >
-      <img
-        src={imageSrc}
-        alt={`Additional view ${index + 1}`}
-        className="h-auto max-w-full rounded-lg"
-      />
-    </div>
-  ))}
+        {item.other_images && item.other_images.map((image, index) => (
+  <div
+    key={index}
+    className="relative break-inside-avoid mb-8"
+    onClick={() => handleClick(`data:${image.image_type};base64,${Buffer.from(image.image_data).toString("base64")}`)}
+  >
+    <img
+      src={`data:${image.image_type};base64,${Buffer.from(image.image_data).toString("base64")}`}
+      alt={image.image_name}
+      className="h-auto max-w-full rounded-lg"
+    />
+  </div>
+))}
+
+
 </div>
 
 

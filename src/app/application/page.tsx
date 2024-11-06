@@ -92,8 +92,8 @@ export default function page() {
                 </div>
                 <div className="lg:h-4/5 lg:w-full w-1/2">
                   <img
-                    src={data.image}
-                    alt=""
+                    src={`data:${data.image_type};base64,${Buffer.from(data.image_data).toString("base64")}`}
+                    alt={data.image_name}
                     className="w-full h-full lg:rounded-b-xl rounded-r-xl"
                   />
                 </div>

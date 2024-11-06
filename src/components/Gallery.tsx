@@ -57,7 +57,6 @@ export default function Gallery() {
                                 <h2 className="text-3xl font-bold text-white lg:text-6xl dark:text-white">
                                     Gallery
                                 </h2>
-
                                 <hr className="lg:w-20 w-10 h-1 bg-white border-0 rounded lg:mt-3 mt-1" />
                             </div>
 
@@ -85,13 +84,14 @@ export default function Gallery() {
                                             key={data._id}
                                             onClick={() => handleClick(data._id)}
                                         >
+                                                              {data.main_image && (
                                             <img
-                                                src={data.mainimage}
+                                            src={`data:${data.main_image.image_type};base64,${Buffer.from(data.main_image.image_data).toString("base64")}`}
+                                            alt={data.main_image.image_name}
                                                 loading="lazy"
-                                                alt="Photo by Minh Pham"
                                                 className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
                                             />
-
+                                                              )}
                                             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
 
                                             <span className="relative ml-4 mb-3 inline-block font-semibold text-sm text-white md:ml-5 md:text-lg">
